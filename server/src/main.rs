@@ -20,7 +20,8 @@ fn get_name(name: &str) -> String
 #[launch]
 fn rocket_launch() -> _
 {
-    let port: u16 = Env::var("PORT");
+    // Get the port number from Heroku
+    let port: u16 = env::var("PORT").unwrap().parse().unwrap();
 
     let roc = rocket::build()
         .mount("/", FileServer::from(
@@ -28,8 +29,6 @@ fn rocket_launch() -> _
         ))
         .mount("/data", routes![get_name])
         .register("/data", catchers![not_found]);
-
-    
 
     roc
 }
