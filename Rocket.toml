@@ -7,3 +7,4 @@ log_level = "debug"
 
 [release]
 log_level = "critical"
+address = "0.0.0.0"
