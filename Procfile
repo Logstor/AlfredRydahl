@@ -1,1 +1,1 @@
-run: cd webapp && npm run build
+worker: build.sh
