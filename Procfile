@@ -1,1 +1,1 @@
-worker: build.sh
+web: ./target/release/AlfredRydahl
