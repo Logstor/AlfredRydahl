@@ -1,0 +1,9 @@
+## defaults for _all_ profiles
+[default]
+address = "127.0.0.1"
+
+[debug]
+log_level = "debug"
+
+[release]
+log_level = "critical"

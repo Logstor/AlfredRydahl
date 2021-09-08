@@ -18,7 +18,8 @@ function Square(props: squareProps)
 
 interface boardState {
   squares: Array<string>,
-  xisNext: Boolean
+  xisNext: Boolean,
+  nameShown: String
 }
 
 class Board extends React.Component
@@ -30,8 +31,14 @@ class Board extends React.Component
     super(props);
     this.state = { 
       squares: Array(9).fill(null),
-      xisNext: true
+      xisNext: true,
+      nameShown: "Unknown"
     };
+
+    // Fetch the name of the user
+    fetch(`/data/Alfred`)
+      .then((res: Response) => res.text())
+      .then((text: String) => this.setState({nameShown: text}));
   }
 
   calculateWinner(squares) : String
@@ -84,10 +91,10 @@ class Board extends React.Component
 
     if (winner) status = `Winner: ${winner}`;
     else status = `Next Player: ${this.state.xisNext ? 'X' : 'O'}`;
-
+    
     return (
       <div>
-        <div className="status">{status}</div>
+        <div className="status">{this.state.nameShown}</div>
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
