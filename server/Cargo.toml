@@ -8,6 +8,3 @@ edition = "2018"
 [dependencies]
 rocket = "0.5.0-rc.1"
 #figment = { version = "0.9", features = ["env", "toml", "json"] }
-
-[target.heroku]
-version = "nightly"
