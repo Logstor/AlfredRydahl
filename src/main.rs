@@ -21,7 +21,9 @@ fn get_name(name: &str) -> String
 fn rocket_launch() -> _
 {
     // Get the port number from Heroku
-    //let port: u16 = env::var("PORT").unwrap().parse().unwrap();
+    let port: u16 = env::var("PORT").unwrap().parse().unwrap();
+
+    println!("Port: {}", port);
 
     let roc = rocket::build()
         .mount("/data", routes![get_name])
