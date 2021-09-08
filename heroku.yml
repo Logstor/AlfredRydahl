@@ -1,8 +1,0 @@
-build:
-  worker:
-    run: cargo build --release
-  docker:
-    web: Dockerfile
-
-run:
-  web: ./AlfredRydahl
