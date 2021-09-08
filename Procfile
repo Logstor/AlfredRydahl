@@ -1,1 +1,1 @@
-worker: cd webapp && npm run build
+run: cd webapp && npm run build
